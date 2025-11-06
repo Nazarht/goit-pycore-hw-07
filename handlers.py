@@ -40,7 +40,7 @@ def get_all(_: list[str], contacts: AddressBook) -> str:
 
     for contact_name, contact_phone_number in contacts.data.items():
         result.append(
-            f"{contact_name} - {', '.join(phone.value for phone in contact_phone_number.phones)}")
+            f"{contact_name} - {', '.join(phone.value for phone in contact_phone_number.phones)}{(' - Birthday: ' + contact_phone_number.birthday.value.strftime('%d.%m.%Y')) if contact_phone_number.birthday else ''}")
 
     if not result:
         return "No contacts found"
